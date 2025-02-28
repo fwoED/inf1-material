@@ -11,13 +11,9 @@ func CountX(list []int, x int) int {
 	}
 
 	if list[0] == x {
-		counter++
-		return CountX(list[1:], x)
+		return CountX(list[1:], x) + 1
 	}
 
-	if list[0] != x {
-		return CountX(list[1:], x)
-	}
+	return counter + CountX(list[1:], x)
 
-	return counter
 }

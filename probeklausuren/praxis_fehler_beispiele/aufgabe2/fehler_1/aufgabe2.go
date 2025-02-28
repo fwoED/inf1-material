@@ -4,20 +4,16 @@ package aufgabe2
 // Die Funktion liefert eine Liste mit allen Elementen x, für die gilt: m < x < n.
 func ExcludeBetween(list []int, m, n int) []int {
 
-	firstpos := -1
-	lastpos := -1
+	ergebnis := []int{}
+	for _, s := range list {
+		if s > m && s < n {
+			ergebnis = append(ergebnis, s)
+		}
 
-	for pos, s := range list {
-		if s == first {
-			firstpos = pos
-		}
-		if s == last {
-			lastpos = pos
-		}
-		if lastpos <= firstpos {
-			return []string{}
-		}
+	}
+	if len(ergebnis) == 0 || m > n {
+		return []int{}
 	}
 
-	return append(list[:firstpos], list[lastpos+1:]...)
+	return ergebnis
 }
